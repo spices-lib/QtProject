@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "CppWorker.h"
+#include "CppSignalSender.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,10 +10,12 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    CppWorker* cppWorker = new CppWorker();
+    CppWorker cppWorker;
+    CppSignalSender sender;
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("BWorker", cppWorker);
+    engine.rootContext()->setContextProperty("BWorker", &cppWorker);
+    engine.rootContext()->setContextProperty("CppSignalSender", &sender);
 
     QObject::connect(
             &engine,
@@ -25,8 +28,5 @@ int main(int argc, char *argv[])
             Qt::QueuedConnection);
     engine.loadFromModule("QtProject", "Main");
 
-    int result = app.exec();
-
-    delete cppWorker;
-    return result;
+    return app.exec();
 }

@@ -16,6 +16,7 @@ public:
 public slots:
 
     void cppSlot();
+    void cppPrint(QString name);
 
 };
 

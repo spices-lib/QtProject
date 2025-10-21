@@ -29,6 +29,7 @@ Window {
         Row {
             anchors.right: parent.right
             spacing: 10
+
             Text {
                 text: qsTr("regularMethod()")
             }
@@ -41,10 +42,12 @@ Window {
             }
         }
         Row {
-            spacing: 10
             anchors.right: parent.right
+            spacing: 10
+
             Text {
                 id: returnTextId
+
                 text: qsTr("return")
             }
             Text {
@@ -52,6 +55,7 @@ Window {
             }
             TextField {
                 id: nameFieldId
+
                 placeholderText: qsTr("name")
                 text: qsTr("John")
             }
@@ -60,8 +64,9 @@ Window {
             }
             TextField {
                 id: ageFieldId
-                placeholderText: qsTr("age")
+
                 inputMethodHints: Qt.ImhDigitsOnly
+                placeholderText: qsTr("age")
                 text: qsTr("25")
             }
             Text {
@@ -69,6 +74,7 @@ Window {
             }
             Button {
                 text: qsTr("Call C++ method")
+
                 onClicked: {
                     if (nameFieldId.text !== null && ageFieldId.text !== null) {
                         var response = BWorker.regular_method_with_return(nameFieldId.text, parseInt(ageFieldId.text));
@@ -80,5 +86,90 @@ Window {
             }
         }
     }
-    Other {}
+    Other {
+    }
+    Row {
+        Rectangle {
+            id: redRectId
+
+            color: "red"
+            height: 100
+            width: 100
+
+            MouseArea {
+                id: redRectMouseAreaId
+
+                anchors.fill: parent
+            }
+        }
+        Rectangle {
+            id: greenRectId
+
+            color: "green"
+            height: 100
+            width: 100
+
+            Connections {
+                function onClicked() {
+                    BWorker.cppPrint(qsTr("This is green rectangle responding"))
+                }
+
+                target: redRectMouseAreaId
+            }
+        }
+        Rectangle {
+            id: blueRectId
+
+            color: "blue"
+            height: 100
+            width: 100
+
+            Connections {
+                function onClicked() {
+                    BWorker.cppPrint(qsTr("This is blue rectangle responding"))
+                }
+
+                target: redRectMouseAreaId
+            }
+        }
+    }
+
+    Connections {
+        target: CppSignalSender
+
+        function onCallQml(parm) {
+            BWorker.cppPrint(parm)
+        }
+
+        function onCppTimer(v) {
+            mRectText.text = v
+        }
+    }
+
+    Column {
+        Rectangle {
+            width: 200
+            height: 200
+            color: "yellow"
+            radius: 10
+
+            Text {
+                id: mRectText
+                text: "0"
+                anchors.centerIn: parent
+                color: "white"
+                font.pointSize: 30
+            }
+        }
+        Button {
+            text: "Call C++ Method"
+            onClicked: {
+                CppSignalSender.cppSlot()
+            }
+        }
+        Text {
+            id: mText
+            text: qsTr("Default")
+        }
+    }
 }

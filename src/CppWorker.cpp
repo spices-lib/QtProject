@@ -1,5 +1,6 @@
 #include "CppWorker.h"
 #include <QDebug>
+#include <iostream>
 
 CppWorker::CppWorker(QObject *parent) : QObject(parent) {}
 
@@ -15,6 +16,10 @@ QString CppWorker::regular_method_with_return(QString name, int age) {
 
 void CppWorker::cppSlot() {
     qDebug() << "This is C++ talking, cppSlot called";
+}
+
+void CppWorker::cppPrint(QString name) {
+    std::cout << name.toStdString() << std::endl;
 }
 
 

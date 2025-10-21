@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include "CppWorker.h"
 #include "CppSignalSender.h"
+#include "Movie.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,10 +13,14 @@ int main(int argc, char *argv[])
 
     CppWorker cppWorker;
     CppSignalSender sender;
+    Movie movie;
+    movie.setTitle("Golden");
+    movie.setMainCharacter("Rumi");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("BWorker", &cppWorker);
     engine.rootContext()->setContextProperty("CppSignalSender", &sender);
+    engine.rootContext()->setContextProperty("Movie", &movie);
 
     QObject::connect(
             &engine,

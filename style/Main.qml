@@ -10,7 +10,7 @@ Window {
     visible: true
     width: 640
 
-    Column {
+    /*Column {
         anchors.right: parent.right
         spacing: 10
 
@@ -144,9 +144,9 @@ Window {
         function onCppTimer(v) {
             mRectText.text = v
         }
-    }
+    }*/
 
-    Column {
+    /*Column {
         Rectangle {
             width: 200
             height: 200
@@ -170,6 +170,62 @@ Window {
         Text {
             id: mText
             text: qsTr("Default")
+        }
+    }*/
+
+    Column {
+        spacing: 20
+
+        Text {
+            id: titleId
+            width: 500
+            text: Movie === null ? "" : Movie.title
+            font.pointSize: 20
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Text {
+            id: mainCharId
+            width: 500
+            text: Movie === null ? "" : Movie.mainCharacter
+            font.pointSize: 20
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Row {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            TextField {
+                id: titleTextFiledId
+                width: 300
+            }
+            Button {
+                width: 200
+                id: button1
+                text: "Change Title"
+                onClicked: {
+                    Movie.title = titleTextFiledId.text
+                }
+            }
+        }
+
+        Row {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            TextField {
+                id: mainCharTextFiledId
+                width: 300
+            }
+            Button {
+                id: button2
+
+                text: "Change main character"
+                width: 200
+
+                onClicked: {
+                    Movie.mainCharacter = mainCharTextFiledId.text;
+                }
+            }
         }
     }
 }

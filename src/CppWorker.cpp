@@ -8,6 +8,7 @@ void CppWorker::regular_method() {
 }
 
 QString CppWorker::regular_method_with_return(QString name, int age) {
+    const auto n = name.toStdString();
     qDebug() << "This is C++ talking, name: " << name << ", age" << age;
     return QString(name + ": " + QString::number(age) + " years old");
 }

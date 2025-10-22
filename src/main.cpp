@@ -5,6 +5,7 @@
 #include "CppSignalSender.h"
 #include "Movie.h"
 #include "PropertyWrapper.h"
+#include "QmlJSCaller.h"
 
 int main(int argc, char *argv[])
 {
@@ -35,6 +36,15 @@ int main(int argc, char *argv[])
     wrapper.setFirstname("John");
 
     engine.rootContext()->setContextObject(&wrapper);
+
+    QmlJSCaller qmlJSCaller;
+    engine.rootContext()->setContextProperty("QmlJSCaller", &qmlJSCaller);
+
+    auto root = engine.rootObjects();
+    if (!root.empty())
+    {
+        qmlJSCaller.setQmlRootObject(root.first());
+    }
 
     QObject::connect(
             &engine,

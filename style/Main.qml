@@ -229,7 +229,7 @@ Window {
         }
     }*/
 
-    Rectangle {
+    /*Rectangle {
         id: mRect1
         width: mText1.implicitWidth + 20
         height: mText1.implicitHeight + 20
@@ -259,6 +259,19 @@ Window {
             anchors.centerIn: parent
             font.pointSize: 20
             text: firstname
+        }
+    }*/
+
+    function qmlJSFunction(param) {
+        console.log("qmlJSFunction called with param: " + param);
+        return "qmlJSFunction returned " + param;
+    }
+
+    Button {
+        id: mButton
+        text: "Call QML function from C++"
+        onClicked: {
+            QmlJSCaller.cppMethod("QML Calling...")
         }
     }
 }

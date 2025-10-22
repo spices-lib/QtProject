@@ -14,6 +14,7 @@ qt_add_executable(app
         src/CppSignalSender.cpp
         src/Movie.cpp
         src/PropertyWrapper.cpp
+        src/QmlJSCaller.cpp
 )
 
 qt_add_qml_module(app

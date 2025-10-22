@@ -173,7 +173,7 @@ Window {
         }
     }*/
 
-    Column {
+    /*Column {
         spacing: 20
 
         Text {
@@ -226,6 +226,39 @@ Window {
                     Movie.mainCharacter = mainCharTextFiledId.text;
                 }
             }
+        }
+    }*/
+
+    Rectangle {
+        id: mRect1
+        width: mText1.implicitWidth + 20
+        height: mText1.implicitHeight + 20
+        color: "beige"
+        border.color: "yellowgreen"
+
+        Text {
+            id: mText1
+            anchors.centerIn: parent
+            text: lastname
+            font.pointSize: 20
+        }
+    }
+
+    Rectangle {
+        id: mRect2
+        anchors.left: mRect1.right
+        anchors.leftMargin: 5
+        width: mText2.implicitWidth + 20
+        height: mText2.implicitHeight + 20
+        border.color: "yellowgreen"
+        color: "beige"
+
+        Text {
+            id: mText2
+
+            anchors.centerIn: parent
+            font.pointSize: 20
+            text: firstname
         }
     }
 }

@@ -4,6 +4,7 @@
 #include "CppWorker.h"
 #include "CppSignalSender.h"
 #include "Movie.h"
+#include "PropertyWrapper.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +22,19 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("BWorker", &cppWorker);
     engine.rootContext()->setContextProperty("CppSignalSender", &sender);
     engine.rootContext()->setContextProperty("Movie", &movie);
+
+    /*
+    QString lastName = "Doe";
+    QString firstName = "John";
+
+    engine.rootContext()->setContextProperty("lastname", QVariant::fromValue(lastName));
+    engine.rootContext()->setContextProperty("firstname", QVariant::fromValue(firstName));*/
+
+    PropertyWrapper wrapper;
+    wrapper.setLastname("Doe");
+    wrapper.setFirstname("John");
+
+    engine.rootContext()->setContextObject(&wrapper);
 
     QObject::connect(
             &engine,

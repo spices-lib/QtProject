@@ -40,6 +40,8 @@ target_link_libraries(app
     PRIVATE Qt6::Quick
 )
 
+target_include_directories(app PRIVATE src)
+
 include(GNUInstallDirs)
 install(TARGETS app
     BUNDLE DESTINATION .

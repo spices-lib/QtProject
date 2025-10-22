@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("BWorker", &cppWorker);
     engine.rootContext()->setContextProperty("CppSignalSender", &sender);
-    engine.rootContext()->setContextProperty("Movie", &movie);
+    //engine.rootContext()->setContextProperty("Movie", &movie);
 
     /*
     QString lastName = "Doe";

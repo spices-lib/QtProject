@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
+import QtProject
 
 Window {
     id: window
@@ -262,7 +263,7 @@ Window {
         }
     }*/
 
-    function qmlJSFunction(param) {
+    /*function qmlJSFunction(param) {
         console.log("qmlJSFunction called with param: " + param);
         return "qmlJSFunction returned " + param;
     }
@@ -272,6 +273,23 @@ Window {
         text: "Call QML function from C++"
         onClicked: {
             QmlJSCaller.cppMethod("QML Calling...")
+        }
+    }*/
+
+    Movie {
+        id: movieId
+
+        mainCharacter: "Leonardo"
+        title: "Titanic"
+    }
+    Button {
+        text: "Invoke created object"
+
+        onClicked: {
+            movieId.title = "Fast and Furious";
+            movieId.mainCharacter = "Tom Cruise";
+
+            console.log("Movie title: " + movieId.title);
         }
     }
 }

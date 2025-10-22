@@ -2,7 +2,11 @@
 
 Movie::Movie(QObject *parent)
     : QObject(parent)
-{}
+    , m_mainCharacter("Main Character")
+    , m_title("Title")
+{
+    qDebug() << "Creating Movie object...";
+}
 
 QString Movie::mainCharacter() const {
     return m_mainCharacter;

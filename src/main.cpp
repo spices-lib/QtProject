@@ -24,6 +24,8 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("CppSignalSender", &sender);
     //engine.rootContext()->setContextProperty("Movie", &movie);
 
+    qmlRegisterType<Movie>("com.example.movie", 1, 0, "Movie");
+
     /*
     QString lastName = "Doe";
     QString firstName = "John";

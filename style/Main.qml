@@ -1,7 +1,8 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
-import QtProject
+//import QtProject
+import com.example.movie
 
 Window {
     id: window

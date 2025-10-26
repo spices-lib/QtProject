@@ -18,6 +18,8 @@ void CppClass::cppSlot() {
     emit sendColor(QColor(1, 2, 3, 4));
     emit sendFont(QFont("Times"));
     emit sendData(QDate::currentDate());
+    emit sendTime(QTime::currentTime());
+    emit sendDataTime(QDateTime::currentDateTime());
     emit sendPoint(QPoint(100, 100));
     emit sendSize(QSize(200, 200));
     emit sendRect(QRect(100, 100, 100, 100));

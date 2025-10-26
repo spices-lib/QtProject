@@ -8,6 +8,8 @@
 #include <QColor>
 #include <QSize>
 #include <QRect>
+#include <QDateTime>
+#include <QTime>
 
 class CppClass : public QObject
 {
@@ -30,6 +32,8 @@ signals:
     void sendColor(QColor v);
     void sendFont(QFont v);
     void sendData(QDate v);
+    void sendTime(QTime v);
+    void sendDataTime(QDateTime v);
     void sendPoint(QPoint v);
     void sendSize(QSize v);
     void sendRect(QRect v);

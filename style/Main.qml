@@ -23,6 +23,12 @@ Window {
         onSendData: function (v) {
             console.log("Received data: " + v + ", type is: " + typeof v);
         }
+        onSendTime: function (v) {
+            console.log("Received time: " + v + ", type is: " + typeof v);
+        }
+        onSendDataTime: function (v) {
+            console.log("Received data time: " + v + ", type is: " + typeof v);
+        }
         onSendDouble: function (v) {
             console.log("Received double: " + v + ", type is: " + typeof v);
         }

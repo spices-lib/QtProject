@@ -6,7 +6,7 @@ class Singleton : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
-    QML_SINGLETON
+    //QML_SINGLETON
 
 public:
 

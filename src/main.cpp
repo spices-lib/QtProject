@@ -5,6 +5,7 @@
 #include "CppSignalSender.h"
 #include "PropertyWrapper.h"
 #include "QmlJSCaller.h"
+#include "Singleton/Singleton.h"
 
 int main(int argc, char *argv[])
 {
@@ -26,6 +27,10 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("lastname", QVariant::fromValue(lastName));
     engine.rootContext()->setContextProperty("firstname", QVariant::fromValue(firstName));*/
+
+    Singleton ton(&app);
+    qmlRegisterSingletonInstance("i.is.a.singleton", 1, 0, "Singleton", &ton);
+
 
     PropertyWrapper wrapper;
     wrapper.setLastname("Doe");

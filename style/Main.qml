@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import Movie
-import Singleton
+import i.is.a.singleton
 
 Window {
     id: window

@@ -26,6 +26,7 @@ qt_add_qml_module(app
 
 add_subdirectory(src/Movie)
 add_subdirectory(src/Singleton)
+add_subdirectory(src/CppClass)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -39,7 +40,7 @@ set_target_properties(app PROPERTIES
 )
 
 target_link_libraries(app
-    PRIVATE Qt6::Quick MovieLibplugin SingletonLibplugin
+    PRIVATE Qt6::Quick MovieLibplugin SingletonLibplugin CppClassLibplugin
 )
 
 target_include_directories(app PRIVATE src)

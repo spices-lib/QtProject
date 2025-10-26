@@ -3,6 +3,7 @@ import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
 import AppWrapper
+import CppEnum.ErrorValue
 
 Window {
     id: root
@@ -14,6 +15,11 @@ Window {
 
     AppWrapper {
         id: appWrapper
+    }
+
+    Component.onCompleted: {
+        console.log("ErrorValue.Error3");
+        console.log(ErrorValue.Error3);
     }
 
     ColumnLayout {

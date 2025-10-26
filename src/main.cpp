@@ -31,7 +31,6 @@ int main(int argc, char *argv[])
     Singleton ton(&app);
     qmlRegisterSingletonInstance("i.is.a.singleton", 1, 0, "Singleton", &ton);
 
-
     PropertyWrapper wrapper;
     wrapper.setLastname("Doe");
     wrapper.setFirstname("John");

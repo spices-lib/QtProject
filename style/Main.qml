@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import Movie
+import Singleton
 
 Window {
     id: window
@@ -21,10 +22,7 @@ Window {
         text: "Invoke created object"
 
         onClicked: {
-            movieId.title = "Fast and Furious";
-            movieId.mainCharacter = "Tom Cruise";
-
-            console.log("Movie title: " + movieId.title);
+            Singleton.doSomething()
         }
     }
 }

@@ -65,12 +65,19 @@ Window {
 
         onClicked: {
             const a = ['1', '2', '3']
+            const b = {
+                "1": "one",
+                "2": "two",
+                "3": "three"
+            }
 
-            cppClassId.qmlArrayToCpp(a);
+            cppClassId.qmlToCpp(a, b);
 
+            const c = cppClassId.retrieveList();
+            console.log("Retrieved list: " + c);
 
-            const b = cppClassId.retrieveString();
-            console.log("Retrieved string: " + b);
+            const d = cppClassId.retrieveMap();
+            console.log("Retrieved Map: " + d);
         }
     }
 }

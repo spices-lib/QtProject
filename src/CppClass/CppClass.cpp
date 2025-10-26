@@ -47,5 +47,26 @@ QVector<QString> CppClass::retrieveString() {
     return array;
 }
 
+void CppClass::qmlToCpp(QVariantList list, QVariantMap map) {
+    qDebug() << list << ", " <<  map;
+}
+
+QVariantMap CppClass::retrieveMap() {
+
+    QVariantMap map;
+    map["1"] = "dawdaw";
+    map["2"] = 415.0f;
+
+    return map;
+}
+
+QVariantList CppClass::retrieveList() {
+
+    QVariantList list;
+    list << "Hello" << "World" << 42 << 42.0f << QColor(1, 2, 3, 4);
+
+    return list;
+}
+
 
 

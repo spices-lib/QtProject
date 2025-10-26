@@ -48,4 +48,8 @@ public slots:
     void qmlArrayToCpp(QVector<QString> vector);
     QVector<QString> retrieveString();
 
+    void qmlToCpp(QVariantList list, QVariantMap map);
+    QVariantList retrieveList();
+    QVariantMap retrieveMap();
+
 };

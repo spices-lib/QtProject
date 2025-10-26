@@ -12,7 +12,6 @@ qt_add_executable(app
         src/main.cpp
         src/CppWorker.cpp
         src/CppSignalSender.cpp
-        src/Movie.cpp
         src/PropertyWrapper.cpp
         src/QmlJSCaller.cpp
 )
@@ -24,6 +23,8 @@ qt_add_qml_module(app
         style/Main.qml
         style/Other.qml
 )
+
+add_subdirectory(src/Movie)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -37,7 +38,7 @@ set_target_properties(app PROPERTIES
 )
 
 target_link_libraries(app
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick MovieLibplugin
 )
 
 target_include_directories(app PRIVATE src)

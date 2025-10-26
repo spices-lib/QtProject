@@ -2,8 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
-import AppWrapper
-import CppEnum.ErrorValue
+import ObjectList
 
 Window {
     id: root
@@ -13,64 +12,59 @@ Window {
     visible: true
     width: 640
 
-    AppWrapper {
-        id: appWrapper
+    FootBallItem {
+        id: teamId
+        title: "Title"
+        coatch: "Coatch"
+        captain: Player {
+            name: "Captain"
+            position: "Middle"
+            playing: true
+        }
+
+        players: [
+            Player {
+                name: "Player1"
+                position: "Middle"
+                playing: true
+            },
+            Player {
+                name: "Player2"
+                position: "Middle"
+                playing: true
+            },
+            Player {
+                name: "Player3"
+                playing: true
+                position: "Middle"
+            },
+            Player {
+                name: "Player4"
+                playing: true
+                position: "Back"
+            }
+        ]
     }
 
-    Component.onCompleted: {
-        console.log("ErrorValue.Error3");
-        console.log(ErrorValue.Error3);
-    }
-
-    ColumnLayout {
+    ListView {
         anchors.fill: parent
-        spacing: 0
+        model: teamId.players
+        delegate: Rectangle {
+            width: parent.width
+            height: 50
+            border.width: 1
+            border.color: "yellowgreen"
+            color: "beige"
 
-        ListView {
-            id: mListView
-            model: appWrapper.posts
-
-            delegate: Rectangle {
-                width: root.width
-                height: textId.implicitHeight+30
-                color: "beige"
-                border.color: "yellowgreen"
-                radius: 5
-
-                Text {
-                    width: parent.width
-                    height: parent.height
-                    id: textId
-                    anchors.centerIn: parent
-                    text: modelData
-                    font.pointSize: 13
-                    wrapMode: Text.WordWrap
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                }
-            }
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
-
-        Button {
-            id: button1Id
-            text: "Fetch"
-            Layout.fillWidth: true
-
-            onClicked: {
-                appWrapper.fetchPosts();
+            Text {
+                anchors.centerIn: parent
+                text: name
+                font.pointSize: 20
             }
         }
-        Button {
-            id: button2Id
-            text: "Remove"
-            Layout.fillWidth: true
+    }
 
-            onClicked: {
-                appWrapper.removeLast();
-            }
-        }
+    Component.onCompleted: function() {
+        console.log("We have " + teamId.players.length + " players in theam " + teamId.title)
     }
 }

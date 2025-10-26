@@ -4,18 +4,32 @@
 AppWrapper::AppWrapper(QObject *parent)
     : QObject(parent)
     , mNetManager(std::make_unique<QNetworkAccessManager>())
-{}
+    , mResetAccessManager(std::make_unique<QRestAccessManager>(mNetManager.get()))
+    , mFactory(std::make_unique<QNetworkRequestFactory>())
+{
+    mFactory->setBaseUrl(QUrl("https://jsonplaceholder.typicode.com"));
+}
 
 void AppWrapper::fetchPosts() {
-    const QUrl API_URL("https://jsonplaceholder.typicode.com/posts");
+    mResetAccessManager->get(mFactory->createRequest("/posts"), this, [=](QRestReply& reply){
+        if (!reply.isSuccess()) {
+            return;
+        }
 
-    QNetworkRequest request;
-    request.setUrl(API_URL);
+        auto doc = reply.readJson();
+        QJsonArray array = doc.value().array();
 
-    mNetReply = mNetManager->get(request);
+        for (int i = 0; i < 10; i++) {
+            QJsonValue item = array.at(i);
+            QJsonObject obj = item.toObject();
+            auto map = obj.toVariantMap();
+            auto title = map["title"].toString();
+            mPosts.append(title);
+        }
 
-    connect(mNetReply, &QNetworkReply::readyRead, this, &AppWrapper::dataReadyRead);
-    connect(mNetReply, &QNetworkReply::finished, this, &AppWrapper::dataReadFinished);
+        emit postsChanged();
+    });
+
 }
 
 void AppWrapper::removeLast() {

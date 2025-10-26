@@ -1,6 +1,8 @@
 #pragma once
 #include <QtQuick>
 #include <QtQml>
+#include <qnetworkrequestfactory.h>
+#include <qrestaccessmanager.h>
 
 class AppWrapper : public QObject
 {
@@ -33,6 +35,8 @@ private slots:
 private:
 
     std::unique_ptr<QNetworkAccessManager> mNetManager;
+    std::unique_ptr<QNetworkRequestFactory> mFactory;
+    std::unique_ptr<QRestAccessManager> mResetAccessManager;
     QNetworkReply* mNetReply;
     QByteArray mDataBuffer;
     QStringList mPosts;

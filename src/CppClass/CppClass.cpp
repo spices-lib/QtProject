@@ -34,5 +34,18 @@ void CppClass::receiveRect(QRect rect) {
 
 }
 
+void CppClass::qmlArrayToCpp(QVector<QString> vector) {
+    qDebug() << vector;
+}
+
+QVector<QString> CppClass::retrieveString() {
+
+    QVector<QString> array;
+    array.push_back("Hello");
+    array.push_back("Hello1");
+
+    return array;
+}
+
 
 

@@ -64,8 +64,13 @@ Window {
         text: "click here"
 
         onClicked: {
-            cppClassId.cppSlot();
-            cppClassId.receivePoint(Qt.point(200, 200));
+            const a = ['1', '2', '3']
+
+            cppClassId.qmlArrayToCpp(a);
+
+
+            const b = cppClassId.retrieveString();
+            console.log("Retrieved string: " + b);
         }
     }
 }

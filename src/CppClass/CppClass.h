@@ -45,4 +45,7 @@ public slots:
     void receivePoint(QPoint point);
     void receiveRect(QRect rect);
 
+    void qmlArrayToCpp(QVector<QString> vector);
+    QVector<QString> retrieveString();
+
 };

@@ -15,6 +15,8 @@ list(APPEND MODULE_SRC_FILES
     Striker.h
     Defender.h
     Defender.cpp
+    PlayerDetails.cpp
+    PlayerDetails.h
 )
 
 qt_add_qml_module(${LIB_NAME}

@@ -20,17 +20,30 @@ Window {
             name: "Captain"
             position: "Middle"
             playing: true
+            details {
+                height: 180
+                weight: 80
+                age: 18
+            }
         }
-        
+
         Defender {
             name: "Player1"
             position: "Middle"
             playing: true
+            details {
+                height: 180
+                weight: 80
+                age: 18
+            }
         }
         Defender {
             name: "Player2"
             position: "Middle"
             playing: true
+            details.height: 180
+            details.weight: 80
+            details.age: 18
         }
         Striker {
             name: "Player3"

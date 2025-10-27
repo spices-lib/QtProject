@@ -16,29 +16,29 @@ Window {
         id: teamId
         title: "Title"
         coatch: "Coatch"
-        captain: Player {
+        captain: Striker {
             name: "Captain"
             position: "Middle"
             playing: true
         }
 
         players: [
-            Player {
+            Defender {
                 name: "Player1"
                 position: "Middle"
                 playing: true
             },
-            Player {
+            Defender {
                 name: "Player2"
                 position: "Middle"
                 playing: true
             },
-            Player {
+            Striker {
                 name: "Player3"
                 playing: true
                 position: "Middle"
             },
-            Player {
+            Striker {
                 name: "Player4"
                 playing: true
                 position: "Back"

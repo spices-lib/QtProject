@@ -23,6 +23,10 @@ public:
     void setPlaying(bool playing);
     void setPosition(QString position);
 
+public slots:
+
+    virtual void play() = 0;
+
 signals:
 
     void nameChanged();

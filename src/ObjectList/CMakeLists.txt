@@ -6,7 +6,16 @@ qt_add_library(${LIB_NAME} STATIC)
 set_target_properties(${LIB_NAME} PROPERTIES AUTOMOC ON)
 target_link_libraries(${LIB_NAME} PRIVATE Qt6::Quick)
 
-list(APPEND MODULE_SRC_FILES Player.cpp Player.h FootBallItem.cpp FootBallItem.h)
+list(APPEND MODULE_SRC_FILES
+    Player.cpp
+    Player.h
+    FootBallItem.cpp
+    FootBallItem.h
+    Striker.cpp
+    Striker.h
+    Defender.h
+    Defender.cpp
+)
 
 qt_add_qml_module(${LIB_NAME}
     URI ${MODULE_NAME}

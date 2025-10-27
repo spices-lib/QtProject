@@ -13,6 +13,8 @@ class FootBallItem : public QObject
     Q_PROPERTY(Player* captain READ captain WRITE setCaptain NOTIFY captainChanged)
     Q_PROPERTY(QQmlListProperty<Player> players READ players NOTIFY playersChanged)
 
+    Q_CLASSINFO("DefaultProperty", "players")
+
 public:
 
     explicit FootBallItem(QObject *parent = nullptr);

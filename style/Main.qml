@@ -21,29 +21,27 @@ Window {
             position: "Middle"
             playing: true
         }
-
-        players: [
-            Defender {
-                name: "Player1"
-                position: "Middle"
-                playing: true
-            },
-            Defender {
-                name: "Player2"
-                position: "Middle"
-                playing: true
-            },
-            Striker {
-                name: "Player3"
-                playing: true
-                position: "Middle"
-            },
-            Striker {
-                name: "Player4"
-                playing: true
-                position: "Back"
-            }
-        ]
+        
+        Defender {
+            name: "Player1"
+            position: "Middle"
+            playing: true
+        }
+        Defender {
+            name: "Player2"
+            position: "Middle"
+            playing: true
+        }
+        Striker {
+            name: "Player3"
+            playing: true
+            position: "Middle"
+        }
+        Striker {
+            name: "Player4"
+            playing: true
+            position: "Back"
+        }
     }
 
     ListView {

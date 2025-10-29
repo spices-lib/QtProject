@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
+import RandomNumber
 
 Window {
     id: root
@@ -11,12 +12,12 @@ Window {
     visible: true
     width: 640
 
-    Timer {
-        interval: 1000
-        running: true
+    Rectangle {
+        id: rectId
+        RandomNumber on width {
 
-        onTimeout: function () {
-            console.log(1);
         }
+        height: 300
+        color: "red"
     }
 }

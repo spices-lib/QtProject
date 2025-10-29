@@ -30,6 +30,7 @@ add_subdirectory(src/CppClass)
 add_subdirectory(src/AppWrapper)
 add_subdirectory(src/ObjectList)
 add_subdirectory(src/AttachedProperty)
+add_subdirectory(src/RandomNumber)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -43,7 +44,7 @@ set_target_properties(app PROPERTIES
 )
 
 target_link_libraries(app
-    PRIVATE Qt6::Quick MovieLibplugin SingletonLibplugin CppClassLibplugin AppWrapperLibplugin ObjectListLibplugin AttachedPropertyLibplugin
+    PRIVATE Qt6::Quick MovieLibplugin SingletonLibplugin CppClassLibplugin AppWrapperLibplugin ObjectListLibplugin AttachedPropertyLibplugin RandomNumberLibplugin
 )
 
 target_include_directories(app PRIVATE src)
